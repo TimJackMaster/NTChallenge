@@ -30,3 +30,18 @@ I created a WeatherController, using the AspNetCore.MVC stuff. It has a simple g
 Currently this dto has only one attribute, but more will follow later.
 
 Now, when launched, the controller is automatically registered and the endpoint can be tested in the swagger gui. It will always return the fake response I created.
+
+## 4. Service Layer
+
+Next I have to create the service layer. This will be a new project (a class library). It will hold our general service logic. For communication to the api layer (and later db layer) I use domain objects.
+I don't want the db later to reference my service layer, so I also create the class library domain, with it's purpose being the project containing my domain models.
+(To apply my current naming policy i called the service layer project "Application". I will also use the name "application layer" in the following descriptions.)
+
+To hide specific implementation, my application layer will only have interfaces as public. A small extension for the IServiceCollection will be public, so I can register the specific implementation for dependency injection within the program (here the api layer) that uses my library.
+
+The first service will return a simple mock answer, like before. But now I will call the service (regestered by dependency injection) from my controller.
+
+In this case I decided to implement the mapping of domain model to dto within the api layer. For now it's just a simple object, so we are fine without a mapping library for now.
+An alternitive way could have been moving dtos and mapping into the service layer. But in this case I decided to not do that, as the mapping won't be a huge impact in this challenge. A reason to have the dtos in the service layer might be the need of a Client in form of a nuget in case another api or similar application needed to use a set interface for sending requests to my service. I currently don't see a use case for this in the given challenge.
+
+With the current state I was confident in starting to add xml comments as part of the documentation (and to make the swagger more accessable for other).
