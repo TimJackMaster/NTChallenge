@@ -1,6 +1,6 @@
 ﻿namespace Api.DTOs;
 
-public record WeatherInformationDto
+public sealed record WeatherInformationDto
 (
     decimal CurrentTemperature
 );

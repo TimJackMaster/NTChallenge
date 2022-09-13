@@ -1,4 +1,6 @@
 ﻿using Api.DTOs;
+using Api.Mapping;
+using Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers;
@@ -8,21 +10,20 @@ namespace Api.Controllers;
 [Produces("application/json")]
 public class WeatherController : ControllerBase
 {
-    public WeatherController()
-    {
+    private readonly IWeatherInformationService _weatherInformationService;
 
+    public WeatherController(IWeatherInformationService weatherInformationService)
+    {
+        _weatherInformationService = weatherInformationService;
     }
 
     [HttpGet]
     public async Task<ActionResult<WeatherInformationDto>> GetWeatherInformation()
     {
-        var response = await CreateFakeResponse();
-        return Ok(response);
-    }
+        var response = await _weatherInformationService.GetCurrentWeatherInformation();
 
-    private async Task<WeatherInformationDto> CreateFakeResponse()
-    {
-        var info = new WeatherInformationDto(1.0m);
-        return await Task.FromResult(info);
+        var dto = response.MapToDto();
+
+        return Ok(dto);
     }
 }
