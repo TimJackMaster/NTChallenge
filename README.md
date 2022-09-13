@@ -22,3 +22,11 @@ Next I created a good structure like I am used to: a build folder for general, n
 I configured the launch settings a little bit to remove all the annoying IIS overhead.
 
 And lastly, I added a json converter in the launch setting. This is a precaution, as I will be communication via json.
+
+## 3. Controller with Mock Response
+
+In this step I want to create a basic controller.
+I created a WeatherController, using the AspNetCore.MVC stuff. It has a simple get endpoint. I created a simple model for the returned object. I chose a record for this to get the advantage of immutability, as these are only data objects that will be returned to the outside.
+Currently this dto has only one attribute, but more will follow later.
+
+Now, when launched, the controller is automatically registered and the endpoint can be tested in the swagger gui. It will always return the fake response I created.
