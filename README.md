@@ -13,3 +13,12 @@ I also started this very small documentation of my working steps to for other to
 
 I am using git, with working branches that get merged into a master branch. I would usually have a second branch, staging, for a test enviroment.
 I felt this, together with a working pipeline, would be overkill for this task. (Just as a sidenode, I prefer a semilinear history via git rebase, not really neccissary in a one-man-army approach ^^)
+
+## 2. Creating Basic Project
+
+My next step is to initialize a basic project. I chose the ASP .NET Core basic template. After creation I first deleted the standart WeatherForecast Controller (though I had the possibility of reusing them.)
+Next I created a good structure like I am used to: a build folder for general, not code related stuff. A src directory to hold all the code. And last but not least a tests directory for the unit tests I want to add later on.
+
+I configured the launch settings a little bit to remove all the annoying IIS overhead.
+
+And lastly, I added a json converter in the launch setting. This is a precaution, as I will be communication via json.

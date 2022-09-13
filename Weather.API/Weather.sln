@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api.csproj", "{73CE4AF3-6D1B-4BA6-AC63-BDCBA5BE06E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E59E2B16-67BD-4D2A-BE5C-B28520CC84E9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{09B32C45-1C4A-4834-B340-47B326F2B77E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{F08439EB-769F-4D16-B4DB-56B46C4BB983}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
+		..\architecture_concept.jpg = ..\architecture_concept.jpg
+		..\architecture_concept.psd = ..\architecture_concept.psd
+		..\NTAG_Coding Challenge_dotnet_2022.pdf = ..\NTAG_Coding Challenge_dotnet_2022.pdf
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73CE4AF3-6D1B-4BA6-AC63-BDCBA5BE06E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73CE4AF3-6D1B-4BA6-AC63-BDCBA5BE06E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73CE4AF3-6D1B-4BA6-AC63-BDCBA5BE06E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73CE4AF3-6D1B-4BA6-AC63-BDCBA5BE06E2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{73CE4AF3-6D1B-4BA6-AC63-BDCBA5BE06E2} = {E59E2B16-67BD-4D2A-BE5C-B28520CC84E9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EAF7433F-BEF3-4A77-9043-61EBA0F71BAA}
+	EndGlobalSection
+EndGlobal
