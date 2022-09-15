@@ -3,7 +3,6 @@ using Api.Mapping;
 using Application.Services;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
-using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 namespace Api.Controllers;
 
@@ -29,6 +28,8 @@ public class WeatherController : ControllerBase
     /// <summary>
     /// Returns the current weather information for a given location.
     /// </summary>
+    /// <param name="latitude">Latitude of the location.</param>
+    /// <param name="longitude">Longitude of the location.</param>
     /// <returns>Current weather information</returns>
     [HttpGet]
     [Route("/location")]

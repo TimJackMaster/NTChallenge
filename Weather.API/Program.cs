@@ -1,4 +1,3 @@
-using System.Net;
 using System.Text.Json.Serialization;
 using Application;
 using Domain;
@@ -16,6 +15,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.RegisterServices();
 
 var secretsPath = builder.Configuration.GetValue<string>("UserSecretsPath");
+
+if (secretsPath is null)
+{
+    throw new ApplicationException("Unable to load path for secrets.json");
+}
+
 builder.Configuration.AddJsonFile(secretsPath);
 
 var openWeatherMapConfig = new OpenWeatherMapConfig(new OpenWeatherMapToken(builder.Configuration.GetValue<string>("Authorization:OpenWeatherMapToken")));

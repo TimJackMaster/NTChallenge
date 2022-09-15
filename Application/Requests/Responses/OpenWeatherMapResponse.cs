@@ -2,7 +2,7 @@
 
 namespace Application.Requests.Responses;
 
-internal class OpenWeatherMapResponse
+internal sealed class OpenWeatherMapResponse
 {
     public Main Main { get; set; } // contains temperature information
 }

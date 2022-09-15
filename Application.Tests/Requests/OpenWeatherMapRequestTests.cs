@@ -1,7 +1,7 @@
-using System.Net;
 using Application.Requests;
 using Moq;
 using RestSharp;
+using System.Net;
 
 namespace Application.Tests;
 
@@ -33,7 +33,7 @@ public sealed class OpenWeatherMapRequestTests
         _restClient.Verify(r => r.GetAsync(It.IsAny<RestRequest>(), exspectedUri), Times.Once);
     }
 
-    private RestResponse CreateRestResponse(string filename, HttpStatusCode statusCode = HttpStatusCode.OK)
+    private static RestResponse CreateRestResponse(string filename, HttpStatusCode statusCode = HttpStatusCode.OK)
     {
         return new RestResponse()
         {
@@ -42,7 +42,7 @@ public sealed class OpenWeatherMapRequestTests
         };
     }
 
-    private string ReadFileContent(string filename)
+    private static string ReadFileContent(string filename)
     {
         var content = File.ReadAllText($"Requests/OpenWeatherMapResponses/{filename}");
         return content;

@@ -3,7 +3,7 @@ using Domain;
 
 namespace Application.Services;
 
-internal class OwmWeatherInformationService : IWeatherInformationService
+internal sealed class OwmWeatherInformationService : IWeatherInformationService
 {
     private readonly OpenWeatherMapConfig _config;
     private readonly IOpenWeatherMapRequest _openWeatherMapRequest;

@@ -1,7 +1,7 @@
 ﻿namespace Domain;
 
 /// <summary>
-/// 
+/// Struct wrapping the api key string
 /// </summary>
 public struct OpenWeatherMapToken
 {
