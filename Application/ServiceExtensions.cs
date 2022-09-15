@@ -1,7 +1,8 @@
-﻿using Application.Services;
+﻿using Application.Requests;
+using Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Application.Core
+namespace Application
 {
     /// <summary>
     /// Extension class for dependency injection.
@@ -14,7 +15,9 @@ namespace Application.Core
         /// <param name="services">Service Collection</param>
         public static void RegisterServices(this IServiceCollection services)
         {
-            services.AddScoped<IWeatherInformationService, WeatherInformationService>();
+            services.AddScoped<IWeatherInformationService, OwmWeatherInformationService>();
+            services.AddScoped<IRestClient, RestClientWrapper>();
+            services.AddTransient<IOpenWeatherMapRequest, OpenWeatherMapRequest>();
         }
     }
 }

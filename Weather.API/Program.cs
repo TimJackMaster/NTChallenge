@@ -1,5 +1,7 @@
+using System.Net;
 using System.Text.Json.Serialization;
-using Application.Core;
+using Application;
+using Domain;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.RegisterServices();
+
+var secretsPath = builder.Configuration.GetValue<string>("UserSecretsPath");
+builder.Configuration.AddJsonFile(secretsPath);
+
+var openWeatherMapConfig = new OpenWeatherMapConfig(new OpenWeatherMapToken(builder.Configuration.GetValue<string>("Authorization:OpenWeatherMapToken")));
+builder.Services.AddSingleton(openWeatherMapConfig);
 
 var app = builder.Build();
 
