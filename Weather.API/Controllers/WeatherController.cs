@@ -1,6 +1,7 @@
 ﻿using Api.DTOs;
 using Api.Mapping;
 using Application.Services;
+using Domain;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers;
@@ -27,11 +28,16 @@ public class WeatherController : ControllerBase
     /// <summary>
     /// Returns the current weather information for a given location.
     /// </summary>
+    /// <param name="latitude">Latitude of the location.</param>
+    /// <param name="longitude">Longitude of the location.</param>
     /// <returns>Current weather information</returns>
     [HttpGet]
-    public async Task<ActionResult<WeatherInformationDto>> GetWeatherInformation()
+    [Route("/location")]
+    public async Task<ActionResult<WeatherInformationDto>> GetWeatherInformation([FromQuery] decimal latitude, [FromQuery] decimal longitude)
     {
-        var response = await _weatherInformationService.GetCurrentWeatherInformation();
+        var coordinates  = new LocationCoordinates(latitude, longitude);
+
+        var response = await _weatherInformationService.GetCurrentWeatherInformation(coordinates);
 
         var dto = response.MapToDto();
 
