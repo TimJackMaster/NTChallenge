@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Domain.WeatherInformation;
 
 namespace Application.Requests;
 

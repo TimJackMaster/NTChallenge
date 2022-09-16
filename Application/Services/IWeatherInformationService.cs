@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using Application.DTOs;
+using Domain;
 
 namespace Application.Services;
 
@@ -11,5 +12,5 @@ public interface IWeatherInformationService
     /// Gets the current weather information for a given collection.
     /// </summary>
     /// <returns>The current weather information at the given location.</returns>
-    public Task<WeatherInformation> GetCurrentWeatherInformation(LocationCoordinates locationCoordinates);
+    public Task<WeatherInformationDto> GetCurrentWeatherInformation(LocationCoordinates locationCoordinates);
 }

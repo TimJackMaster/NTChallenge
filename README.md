@@ -60,3 +60,13 @@ Currently the OpenWeatherMapRequest doesn't do much, so I implemented only a fir
 
 The OpenWeatherMapRequest is called by the OwmWeatherInformationService, a specific implementation of the IWeatherInformationService interface. After regestering it in my ServiceExtension class it is now the used service and loads the temperature from the Open Weather Map API.
 I also had to add parameters to my GET method in my controller. I am loading these from my query.
+
+## 6. Full Response
+
+So far the response had only consisted of a single property. In this step I added missing properties. This brought some unexspected difficulties.
+My original plan was to use Automapper for the mapping from rest client response to domain object to dto. I had planned to create a Mapper instance, registered in the DI container and injected for the IMapper interface.
+To not have the nuget installed in two projects I first had moved my dtos into the application layer (something I previously figured wouldn't be needed, but now it made more sense).
+Then, after implementing the mapping rules, I realized after launching my unit test, that I had overlooked something: As I am using records for consistency in my object's states, I inherently prevented Automapper from initilizing my instances during the mapping.
+Because the properties are immutable, Mapper throws an exception. This ultimately made my write my own little mapping extensions, with the knowledge of the objects not being big.
+
+After some little adjustments and the addition of a unit test that would test the correct mapping in the OpenWeatherInformationRequestTests I had completely implemented the request sending logic for requesting data from Open Weather Map.

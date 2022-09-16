@@ -1,4 +1,6 @@
-﻿using Application.Requests;
+﻿using Application.DTOs;
+using Application.Mapping;
+using Application.Requests;
 using Domain;
 
 namespace Application.Services;
@@ -14,10 +16,10 @@ internal sealed class OwmWeatherInformationService : IWeatherInformationService
         _config = config;
     }
 
-    public async Task<WeatherInformation> GetCurrentWeatherInformation(LocationCoordinates locationCoordinates)
+    public async Task<WeatherInformationDto> GetCurrentWeatherInformation(LocationCoordinates locationCoordinates)
     {
         var information = await _openWeatherMapRequest.GetCurrentWeatherInformation(locationCoordinates, _config.Token);
 
-        return information;
+        return information.MapToDto();
     }
 }
