@@ -1,5 +1,7 @@
-﻿using Application.Requests.Responses;
+﻿using Application.Mapping;
+using Application.Requests.Responses;
 using Domain;
+using Domain.WeatherInformation;
 using RestSharp;
 using System.Text.Json;
 
@@ -25,7 +27,9 @@ internal sealed class OpenWeatherMapRequest : IOpenWeatherMapRequest
 
         var responseDto = ConvertJsonToObject<OpenWeatherMapResponse>(response);
 
-        return MapResponseToDomainObject(responseDto!);
+        var domainObject = responseDto.MapToDomain();
+
+        return domainObject;
     }
 
     private static T? ConvertJsonToObject<T>(RestResponse response)
@@ -36,10 +40,5 @@ internal sealed class OpenWeatherMapRequest : IOpenWeatherMapRequest
         });
 
         return converted;
-    }
-
-    private static WeatherInformation MapResponseToDomainObject(OpenWeatherMapResponse response)
-    {
-        return new WeatherInformation(response.Main.Temp);
     }
 }

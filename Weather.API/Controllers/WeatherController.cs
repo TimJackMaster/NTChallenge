@@ -1,5 +1,4 @@
-﻿using Api.DTOs;
-using Api.Mapping;
+﻿using Application.DTOs;
 using Application.Services;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
@@ -37,9 +36,7 @@ public class WeatherController : ControllerBase
     {
         var coordinates  = new LocationCoordinates(latitude, longitude);
 
-        var response = await _weatherInformationService.GetCurrentWeatherInformation(coordinates);
-
-        var dto = response.MapToDto();
+        var dto = await _weatherInformationService.GetCurrentWeatherInformation(coordinates);
 
         return Ok(dto);
     }
