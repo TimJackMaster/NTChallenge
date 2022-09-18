@@ -70,3 +70,10 @@ Then, after implementing the mapping rules, I realized after launching my unit t
 Because the properties are immutable, Mapper throws an exception. This ultimately made my write my own little mapping extensions, with the knowledge of the objects not being big.
 
 After some little adjustments and the addition of a unit test that would test the correct mapping in the OpenWeatherInformationRequestTests I had completely implemented the request sending logic for requesting data from Open Weather Map.
+
+## Conclusion
+As I don't have time to finish my remaining plans, I want to at least lay out the rest of my plan.
+My next steps would be to add some error handling and response wrapping. The json response should consist of a result (holding the dto), a success field (boolean) and a field containing the http status code.
+Next, as there was a database mentioned in the task sheet, I would implement a database layer using Entity Framework, and running it locally with a docker container containing the database. 
+
+Overall, it was a fun little task, though I had to be a bit creative and taking some liberties as most of the task was oriented towards frontend implementation, which I don't have any expierince with. But I hope this project still displays my general process and philosophy when developing sonfware implementation.
